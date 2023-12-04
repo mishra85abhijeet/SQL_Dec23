@@ -124,3 +124,42 @@ SELECT COUNT(CASE WHEN companies.permalink IS NOT NULL AND acquisitions.company_
   FULL JOIN tutorial.crunchbase_acquisitions acquisitions
     ON companies.permalink = acquisitions.company_permalink
 
+### UNION
+SQL joins allow you to combine two datasets side-by-side, but UNION allows you to stack one dataset on top of the other
+1. Both tables must have the same number of columns
+2. The columns must have the same data types in the same order as the first table
+
+SELECT
+SELECT *
+  FROM tutorial.crunchbase_investments_part1
+
+ UNION ALL
+
+ SELECT *
+   FROM tutorial.crunchbase_investments_part2
+
+### Using comparison operators with joins
+
+SELECT companies.permalink,
+       companies.name,
+       companies.status,
+       COUNT(investments.investor_permalink) AS investors
+  FROM tutorial.crunchbase_companies companies
+  LEFT JOIN tutorial.crunchbase_investments_part1 investments
+    ON companies.permalink = investments.company_permalink
+   AND investments.funded_year > companies.founded_year + 5
+ GROUP BY 1,2, 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
