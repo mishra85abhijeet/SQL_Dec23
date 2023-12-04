@@ -2,12 +2,15 @@
 
 
 SELECT COUNT(date) AS count_of_date
+
   FROM tutorial.aapl_historical_stock_price
 
 SELECT SUM(volume)
+
   FROM tutorial.aapl_historical_stock_price
 
 SELECT MIN(volume) AS min_volume,
+
        MAX(volume) AS max_volume
   FROM tutorial.aapl_historical_stock_price
 
