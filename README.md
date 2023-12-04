@@ -159,11 +159,28 @@ SELECT companies.permalink,
    AND companies.name = investments.company_name
 
 
+### Self joining tables
+Let’s say you wanted to identify companies that received an investment from Great Britain following an investment from Japan.	
 
+SELECT DISTINCT japan_investments.company_name,
+	   japan_investments.company_permalink
+  FROM tutorial.crunchbase_investments_part1 japan_investments
+  JOIN tutorial.crunchbase_investments_part1 gb_investments
+    ON japan_investments.company_name = gb_investments.company_name
+   AND gb_investments.investor_country_code = 'GBR'
+   AND gb_investments.funded_at > japan_investments.funded_at
+ WHERE japan_investments.investor_country_code = 'JPN'
+ ORDER BY 1
 
+## Data Type
 
+String - VARCHAR(1024)	- Any characters, with a maximum field length of 1024 characters.
 
+Date/Time - TIMESTAMP - Stores year, month, day, hour, minute and second values as YYYY-MM-DD hh:mm:ss.
 
+Number - DOUBLE PRECISION - Numerical, with up to 17 significant digits decimal precision
+
+Boolean - BOOLEAN - 	Only TRUE or FALSE values.
 
 
 
