@@ -46,7 +46,7 @@ SELECT player_name,
   FROM benn.college_football_players
 
 
-Adding multiple conditions to a CASE statement
+### Adding multiple conditions to a CASE statement
 You can also define a number of outcomes in a CASE statement by including as many WHEN/THEN statements as you'd like:
 
 SELECT player_name,
@@ -58,7 +58,7 @@ SELECT player_name,
   FROM benn.college_football_players
 
 
-DISTINCT for viewing unique values
+### DISTINCT for viewing unique values
 
 SELECT DISTINCT year, month
   FROM tutorial.aapl_historical_stock_price
@@ -67,7 +67,7 @@ SELECT COUNT(DISTINCT month) AS unique_months
   FROM tutorial.aapl_historical_stock_price
 
 
-INNER JOIN -Joining tables with identical column names
+### INNER JOIN -Joining tables with identical column names
 
 SELECT players.*,
        teams.*
@@ -76,14 +76,14 @@ SELECT players.*,
     ON teams.school_name = players.school_name
 
 
-Outer joins -Outer joins are joins that return matched values and unmatched values from either or both tables
+### Outer joins -Outer joins are joins that return matched values and unmatched values from either or both tables
 
 LEFT JOIN returns only unmatched rows from the left table
 RIGHT JOIN returns only unmatched rows from the right table
 FULL OUTER JOIN returns unmatched rows from both tables
 
 
-LEFT JOIN- 
+### LEFT JOIN- 
 	
 SELECT companies.permalink AS companies_permalink,
        companies.name AS companies_name,
@@ -94,10 +94,10 @@ SELECT companies.permalink AS companies_permalink,
     ON companies.permalink = acquisitions.company_permalink
 
 
-RIGHT JOIN - is rarely used because you can achieve the results of a RIGHT JOIN by simply switching the two joined table names in a LEFT JOIN
+### RIGHT JOIN - is rarely used because you can achieve the results of a RIGHT JOIN by simply switching the two joined table names in a LEFT JOIN
 
 
-Filtering in the WHERE clause
+#### Filtering in the WHERE clause
 
 SELECT companies.permalink AS companies_permalink,
        companies.name AS companies_name,
@@ -111,7 +111,7 @@ SELECT companies.permalink AS companies_permalink,
  ORDER BY 1
 
 
-FULL JOIN -It is commonly used in conjunction with aggregations to understand the amount of overlap between two tables.
+### FULL JOIN -It is commonly used in conjunction with aggregations to understand the amount of overlap between two tables.
 
 
 SELECT COUNT(CASE WHEN companies.permalink IS NOT NULL AND acquisitions.company_permalink IS NULL
