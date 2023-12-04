@@ -15,6 +15,7 @@ SELECT AVG(high)
   FROM tutorial.aapl_historical_stock_price
 
 
+### Group By
 SELECT year,
        month,
        COUNT(*) AS count
@@ -22,7 +23,7 @@ SELECT year,
  GROUP BY year, month
  ORDER BY month, year
 
-
+### Having
 SELECT year,
        month,
        MAX(high) AS month_high
@@ -32,6 +33,7 @@ HAVING MAX(high) > 400
  ORDER BY year, month
 
 
+### CASE Statement
 The CASE statement is SQL's way of handling if/then logic. The CASE statement is followed by at least one pair of WHEN and THEN statements—SQL's equivalent of IF/THEN in Excel
 
 SELECT player_name,
