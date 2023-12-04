@@ -147,6 +147,16 @@ SELECT companies.permalink,
    AND investments.funded_year > companies.founded_year + 5
  GROUP BY 1,2, 3
 
+### Joining on multiple keys
+
+SELECT companies.permalink,
+       companies.name,
+       investments.company_name,
+       investments.company_permalink
+  FROM tutorial.crunchbase_companies companies
+  LEFT JOIN tutorial.crunchbase_investments_part1 investments
+    ON companies.permalink = investments.company_permalink
+   AND companies.name = investments.company_name
 
 
 
